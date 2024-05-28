@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 const App = () => {
-  const allCookies = Cookies.get(); // Gets all the cookies stored in your browser
+  const allCookies = Cookies.get();
   const cookiesArray = Object.entries(allCookies);
 
-  const [count, setCount] = useState(0); // The dependecy variable
+  const [count, setCount] = useState(0); 
   const [token, setToken] = useState({ name: "", value: "" });
 
-  // This function handles the user input - it is executed when the user types into the inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -21,11 +20,11 @@ const App = () => {
     });
   };
 
-  // This functions sets/saves a cookie to the browser
+ 
   const handleSubmit = () => {
-    setCount((prevCount) => prevCount + 1); // Changes the value of the dependecy variable
-    Cookies.set(token.name, token.value); // Sets/Saves the cookie to the browser
-    // Clears the input fields
+    setCount((prevCount) => prevCount + 1); 
+    Cookies.set(token.name, token.value); 
+    
     setToken((prevToken) => {
       return {
         ...prevToken,
@@ -35,15 +34,14 @@ const App = () => {
     });
   };
 
-  // This functions deletes a cookie from where it is stored
   const handleDelete = (name) => {
-    setCount((prevCount) => prevCount + 1); // Changes the value of the dependency variable
-    Cookies.remove(name); // Deletes the cookie from the browser
+    setCount((prevCount) => prevCount + 1); 
+    Cookies.remove(name); 
   };
 
-  // A react hook that executes a function when the page loads
-  // It also re-renders a page when a variable in the dependency array changes
-  useEffect(() => {}, [count]); // The dependency array
+  
+
+  useEffect(() => {}, [count]); 
 
   return (
     <div className="main">
@@ -55,12 +53,12 @@ const App = () => {
       </div>
       <div className="content">
         <div className="cookies">
-          <span>Your Cookies</span>
+          <span>Tus Cookies</span>
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Value</th>
+                <th>Nombre</th>
+                <th>Valor</th>
               </tr>
             </thead>
             <tbody>
@@ -71,7 +69,7 @@ const App = () => {
                     <td>{cookie[1]}</td>
                     <td>
                       <button onClick={() => handleDelete(cookie[0])}>
-                        <span>Delete</span>
+                        <span>Borrar</span>
                       </button>
                     </td>
                   </tr>
