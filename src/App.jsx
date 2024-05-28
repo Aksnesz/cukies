@@ -79,23 +79,23 @@ const App = () => {
         </div>
         <div className="actions">
           <div>
-            <span>Name:</span>
+            <span>Nombre:</span>
             <input
               name="name"
               value={token.name}
               onChange={handleChange}
               type="text"
-              placeholder="Required.."
+              placeholder="Requerido.."
             />
           </div>
           <div>
-            <span>Value:</span>
+            <span>Valor:</span>
             <input
               name="value"
               value={token.value}
               onChange={handleChange}
               type="text"
-              placeholder="Required.."
+              placeholder="Requerido.."
             />
           </div>
           <button disabled={!token.name || !token.value} onClick={handleSubmit}>
